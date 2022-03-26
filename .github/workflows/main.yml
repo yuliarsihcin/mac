@@ -30,7 +30,7 @@ jobs:
           git add -A
           git commit -m "$Commit"
       - name: Push Back
-        uses: ad-m/github-push-action@v0.5.0 Bntar
+        uses: ad-m/github-push-action@v0.5.0
         with:
           force: true
           directory: '.'
