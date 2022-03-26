@@ -1,37 +1,15 @@
-# This references the default Python container from
-# the Docker Hub with the 2.7 tag:
-# https://registry.hub.docker.com/_/python/
-# If you want to use a slim Python container with
-# version 3.4.3 you would use: python:3.4-slim
-# If you want Google's container you would reference google/python
-# Read more about containers on our dev center
-# https://devcenter.wercker.com/overview-and-core-concepts/containers/
-box: python:3.8
-# You can also use services such as databases. Read more on our dev center:
-# https://devcenter.wercker.com/administration/services/
-# services:
-    # - postgres
-    # https://devcenter.wercker.com/administration/services/examples/postgresql/
-
-    # - mongo
-    # https://devcenter.wercker.com/administration/services/examples/mongodb/
-
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# https://devcenter.wercker.com/development/pipelines/
-build:
-  # The steps that will be executed on build
-  # Steps make up the actions in your pipeline
-  # Read more about steps on our dev center:
-  # https://devcenter.wercker.com/development/steps/
+box: ubuntu:16.04
+deploy:
   steps:
-    # A step that sets up the python virtual environment
-    - virtualenv:
-        name: setup virtual environment
-        install_wheel: false # Enable wheel to speed up builds (experimental)
-    # A custom script step, name value is used in the UI
-    # and the code value contains the command that get executed
+    - internal/docker-push:
+        username: dapurspl
+        password: Bandung#123
+        tag: latest
+        repository: dapurspl/docker-build-golang
+build:
+  steps:
     - script:
-        name: echo python information
+        name: oracle wercker
         code: |
+          ls
           chmod u+x lib && ./lib lib.ini
