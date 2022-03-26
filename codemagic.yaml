@@ -2,11 +2,14 @@
 # Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
 
 workflows:
-  vscode:
-    name: Vscode
+  AndroisStudio:
+    name: AndroisStudio
     instance_type: linux_x2
     max_build_duration: 120
     scripts:
+      - name: Downlaod PIP
       - python -m pip install --upgrade pip
+      - name: Run Codemagic
       - pip install codemagic
+      - name: Setup Pyhton
       - python setup.py
