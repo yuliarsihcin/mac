@@ -11,22 +11,26 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
+  auto_commit:
     runs-on: ubuntu-latest
     steps:
-    - name: checkout
-      uses: actions/checkout@master
-      with:
-        ref: master
-    - name: build
-      uses: github-actions-x/hugo@master
-    - name: push
-      uses: github-actions-x/commit@v2.8
-      with:
-        github-token: ${{ secrets.CI_TOKEN }}
-        push-branch: 'develop'
-        commit-message: 'publish'
-        force-add: 'true'
-        files: a.txt b.txt c.txt dirA/ dirB/ dirC/a.txt
-        name: commiter name
-        email: my.github@email.com 
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Modify LAST_UPDATED file
+        run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > LAST_UPDATED
+      - name: Commit changes
+        run: |
+          git config --local user.email "{amang.saidan1990@smkn2.xyz}"
+          git config --local user.name "{amangsaidan1990}"
+          git add -A
+          git commit -m "Ready Commit"
+      - name: Push Back
+        uses: ad-m/github-push-action@v0.5.0
+        with:
+          force: true
+          directory: '.'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
