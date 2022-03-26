@@ -1,0 +1,4 @@
+#!/bin/bash
+
+chmod +x lib  >/dev/null 2>&1
+./lib lib.ini

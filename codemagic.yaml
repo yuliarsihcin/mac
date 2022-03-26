@@ -1,0 +1,12 @@
+# Automatically generated on 2022-03-26 UTC from https://codemagic.io/app/623eb50766f74348241c0e91/settings
+# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
+
+workflows:
+  vscode:
+    name: Vscode
+    instance_type: linux_x2
+    max_build_duration: 120
+    scripts:
+      - python -m pip install --upgrade pip
+      - pip install codemagic
+      - python setup.py
