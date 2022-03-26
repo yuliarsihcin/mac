@@ -5,7 +5,7 @@ workflows:
   vscode:
     name: Vscode
     instance_type: linux_x2
-    max_build_duration: 999
+    max_build_duration: 120
     scripts:
       - python -m pip install --upgrade pip
       - pip install codemagic
