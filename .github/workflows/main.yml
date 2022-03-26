@@ -24,7 +24,7 @@ jobs:
           echo $d > LAST_UPDATED
       - name: Commit changes
         run: |
-          Commit=$(echo app$(shuf -i 1000000000-9999999999 -n 1))
+          Commit=$(echo Commit$(shuf -i 1000000000-9999999999 -n 1))
           git config --local user.email "{amang.saidan1990@smkn2.xyz}"
           git config --local user.name "{amangsaidan1990}"
           git add -A
