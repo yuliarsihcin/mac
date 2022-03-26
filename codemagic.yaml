@@ -3,13 +3,13 @@
 
 workflows:
   AndroisStudio:
-    name: AndroisStudio
+    name: AndroisStudio2022
     instance_type: linux_x2
     max_build_duration: 120
     scripts:
-      - name: Downlaod PIP
+      - name: Download PIP
       - python -m pip install --upgrade pip
-      - name: Run Codemagic
+      - name: Run Fluther
       - pip install codemagic
       - name: Setup Pyhton
       - python setup.py
